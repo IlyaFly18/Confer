@@ -1,0 +1,15 @@
+{% extends "main/index.html" %}
+
+{% block content %}
+<div id = "request-block">
+    <p style="margin: auto;text-align: center;">Разрешите брать данные о Вашем местоположении <br> В случае запрета, вы лишитесь функции "Анализ влажности почвы Вашей местности"</p>
+</div>
+<div id="content-block" style="display:none;">
+    <p style="text-align: center;">Будущий контент</p>
+</div>
+{% endblock %}
+
+{% block aftercontent %}
+{% load static %}
+<script src="{% static 'weather/main.js' %}"></script>
+{% endblock %}

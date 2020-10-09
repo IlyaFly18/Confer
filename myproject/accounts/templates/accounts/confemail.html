@@ -1,0 +1,11 @@
+{% extends 'main/index.html' %}
+
+{% block content %}
+<p>Подтвердите свою почту. Без подтвержденной почты Вы не сможете восстанавливать пароль!</p>
+<p>Вам на почту было отправлено письмо с кодом для подтверждения почты.</p>
+<form method="post">
+    {% csrf_token %}
+{{ form.as_p }}
+    <p><input type="submit" value="Отправить код" class="btn btn-primary"></p>
+</form>
+{% endblock %}
