@@ -5,7 +5,7 @@ from django.contrib.auth import views as auth_views
 from .forms import SetPasswordForm, PasswordResetForm
 
 urlpatterns = [
-    re_path(r'^sign_up$', views.signup, name="signup"),
+    path('sign_up', views.signup, name="signup"),
 
     #Подтверждение почты
     path('sign_up/conf_email', views.confEmail, name="conf_email"),

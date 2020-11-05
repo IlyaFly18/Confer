@@ -1,0 +1,32 @@
+{% extends "main/index.html" %}
+
+{% block headlinks %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'beds/style.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div class="beds-content">
+    <div class="error-message">
+        <p></p>
+    </div>
+    <div class="beds-create" style="display: none">
+        <form id="createBedForm" name="createBedForm">
+            {{ form.as_p }}
+            <input type="submit" value="Создать объект" class="beds-create-btn-submit btn btn-success btn-lg btn-block">
+        </form>
+    </div>
+    <button type="button" class="btn btn-success btn-lg btn-block beds-create-btn">Создать объект</button>
+    <button type="button" class="btn btn-success btn-lg btn-block beds-create-btn" style="display: none">Не создавать объект</button>
+    <div class="beds-list">
+        {% include 'beds/beds_list.html' %}
+    </div>
+</div>
+{% endblock %}
+
+
+{% block aftercontent %}
+{% load static %}
+<script src="{% static 'beds/main.js' %}"></script>
+{% endblock %}

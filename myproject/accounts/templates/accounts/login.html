@@ -1,18 +1,54 @@
 {% extends  'main/index.html' %}
 
+{% block headlinks %}
+<style>
+    .card input {
+        display: block;
+    }
+
+    .card {
+        width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 10px;
+        border: 2px solid #8acce8;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+        text-align: center;
+    }
+
+    .card input[type='text'], .card input[type='password'], .card input[type='email']{
+        padding: 6px 10px;
+        border-radius: 10px;
+        border: 1px solid black;
+        margin: 0 auto;
+    }
+    .card input[type='text']:focus, .card input[type='password']:focus, .card input[type='email']:focus{
+        outline: none;
+        border-color: #e82525;
+    }
+    .card input[type='submit']{
+        display: block;
+        margin: 20px auto;
+        width: 100px;
+    }
+    .card a{
+        width: 140px;
+        display: block;
+        margin: 0 auto;
+    }
+
+</style>
+{% endblock %}
 
 {% block content %}
 <div class="card">
-<div class="card-body">
-<h4 class="card-title">Log in to your account</h4>
-
-<form method="post">
-{% csrf_token %}
-
-{{ form.as_p }}
+    <h4 class="card-title">Войдите в аккаунт</h4>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="btn btn-primary btn-block" value="Войти">
+    </form>
     <a href="{% url 'password_reset' %}">Забыли пароль?</a>
-<button type="submit" class="btn btn-primary btn-block">Log in</button>
-</form>
 </div>
-</div>
+
 {% endblock %}

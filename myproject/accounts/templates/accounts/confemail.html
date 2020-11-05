@@ -1,11 +1,28 @@
 {% extends 'main/index.html' %}
 
+{% block headlinks %}
+<style>
+    .card{
+        width: 700px;
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 10px;
+        border: 2px solid #8acce8;
+        text-align: center;
+    }
+</style>
+
+{% endblock %}
+
+
 {% block content %}
-<p>Подтвердите свою почту. Без подтвержденной почты Вы не сможете восстанавливать пароль!</p>
-<p>Вам на почту было отправлено письмо с кодом для подтверждения почты.</p>
-<form method="post">
-    {% csrf_token %}
-{{ form.as_p }}
-    <p><input type="submit" value="Отправить код" class="btn btn-primary"></p>
-</form>
+<div class="card">
+    <p>Подтвердите свою почту. Без подтвержденной почты Вы не сможете восстанавливать пароль!</p>
+    <p>Вам на почту было отправлено письмо с кодом для подтверждения почты.</p>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <p><input type="submit" value="Отправить код" class="btn btn-primary"></p>
+    </form>
+</div>
 {% endblock %}

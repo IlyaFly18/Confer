@@ -36,6 +36,9 @@ INSTALLED_APPS = [
     'main',
     'accounts',
     'weather',
+    'beds',
+    'plants',
+    'notif',
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -90,6 +93,12 @@ DATABASES = {
         'PORT' : '5432',
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': 'mydatabase',
+#     }
+# }
 
 GEOS_LIBRARY_PATH = 'C:\OSGeo4W64\\bin\geos_c.dll'
 GDAL_LIBRARY_PATH = 'C:\OSGeo4W64\\bin\gdal300.dll'
@@ -147,3 +156,5 @@ SERVER_EMAIL = DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
+
+

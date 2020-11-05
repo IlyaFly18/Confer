@@ -1,0 +1,352 @@
+
+.bed-content-create, .bed-content-info{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0 0 30px 0;
+}
+
+.bed>h2{
+    margin-bottom: 60px;
+}
+.cursorBlock, .cursorBlockActive{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #ff495b;
+    position: absolute;
+    top:0;
+    left:0;
+}
+
+.bed-custom, .bed-plants-custom{
+    border: 3px dashed black;
+    box-sizing: border-box;
+    height:300px;
+    width: 400px;
+    border-radius: 10px;
+    position: relative;
+    cursor: none;
+}
+.bed-circle{
+    border-radius: 50%;
+}
+.bed-plants-custom{
+    cursor: auto;
+}
+
+#id_desc{
+    height: 60px;
+    resize: none;
+}
+.plant-btn-active{
+    background-color: #34ce57;
+}
+
+.plant{
+    background-color: #1c7430;
+}
+
+.plants-btns{
+    margin-bottom: 30px;
+}
+
+.bed-plants-custom .plants-list button{
+    outline:none;
+}
+
+/*Кнопки между create и info*/
+.plants-btns button{
+    display: block;
+    margin: 0 auto;
+    padding: 5px 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.plants-btns button:focus{
+    outline: none;
+}
+.plants-btns{
+    display: flex;
+    margin: 0 auto 30px 0;
+}
+
+
+
+
+
+/*Форма plant-create*/
+.plant-create-form{
+    /*margin: 0 auto;*/
+    opacity: 0.5;
+    pointer-events: none;
+    box-sizing: border-box;
+    border: 2px solid #a19ea1;
+    padding:20px;
+    border-radius: 10px;
+}
+.plant-create-form h4{
+    margin-bottom: 40px;
+}
+.plant-create-form input{
+    width: 100%;
+    display: block;
+    padding: 10px;
+    background-color: #9dffa4;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+}
+.plant-create-form input[type='text']{
+    background-color: #fff;
+    border: 1px solid black;
+}
+.plant-create-form input[type='submit']:hover{
+    background-color: #2fff27;
+}
+.plant-create-form input[type='submit']:active{
+    background-color: #b1ffb2;
+}
+.plant-create-form input[type='submit']:focus{
+    outline: none;
+}
+.plant-create-form textarea{
+    display: block;
+    width: 100%;
+    border-radius: 20px;
+    outline: none;
+    padding: 10px;
+    min-height: 70px;
+    border: 1px solid black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Форма plant-info*/
+
+.success-message{
+    position: absolute;
+    left:0;
+    top: 0;
+    background-color: #57ff44;
+    padding:20px;
+    border-radius: 20px;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+}
+
+.div-plant-profile{
+    position: relative;
+}
+
+
+.div-plant-profile{
+    width: 400px;
+    margin: 0 50px 0 0;
+
+}
+.div-plant-profile h4{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.plant-profile input{
+    width: 100%;
+    display: block;
+    padding: 10px;
+    background-color: #9dffa4;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+}
+.plant-profile input[type='text']{
+    background-color: #ffffff;
+    border: 1px solid black;
+}
+.plant-profile input[type='submit']:hover{
+    background-color: #2fff27;
+}
+.plant-profile input[type='submit']:active{
+    background-color: #b1ffb2;
+}
+.plant-profile textarea{
+    display: block;
+    width: 100%;
+    border-radius: 20px;
+    outline: none;
+    padding: 10px;
+    min-height: 70px;
+    border: 1px solid black;
+}
+
+.plant-del-btn{
+    width:100%;
+    outline: none;
+    background-color: #ff626f;
+    margin-top: 20px;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+}
+.plant-del-btn:hover{
+    background-color: #ff3249;
+}
+.plant-del-btn:active{
+    background-color: #ff6f80;
+}
+.plant-del-btn:focus{
+    outline: none;
+}
+
+.one-plant-info{
+    margin: 0 auto;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.one-plant-info-title{
+    display: block;
+    text-align: center;
+    margin: 20px 0;
+}
+.one-plant-info-content{
+    display: flex;
+    justify-content: space-between;
+}
+
+.plant-functions{
+    overflow-y: scroll;
+    padding: 0 20px 0 0;
+    width: 400px;
+    height: 400px;
+}
+.plant-functions button{
+    display: block;
+    margin: 0 auto;
+}
+.plant-functions input{
+    display: block;
+}
+.plant-functions input[type='submit']{
+    margin: 0 auto;
+}
+.plant-functions h4{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.div-plant-functions-form{
+    margin-bottom: 20px;
+}
+
+.plant-functions-form{
+    margin: 0 auto 20px auto;
+}
+
+.plant-functions-form textarea{
+    display: block;
+    resize: none;
+    width: 100%;
+    height: 70px;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid black;
+}
+.plant-functions-form input:focus{
+    outline: none;
+}
+.plant-functions-form textarea:focus{
+    outline: none;
+}
+.plant-functions-form input[name='period']{
+    margin: 0 auto;
+    padding: 3px 6px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+.plant-functions-form input[type='date']{
+    width: 50%;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 20px;
+    outline: none;
+    border: 1px solid black;
+}
+
+.plant-functions-form label{
+    font-size: 15px;
+}
+
+.plant-functions-form-show-btn,
+.plant-functions-form-submit{
+    width: 100%;
+    display: block;
+    padding: 10px;
+    background-color: #9dffa4;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+}
+.plant-functions-form-hide-btn{
+    width:100%;
+    outline: none;
+    background-color: #ff626f;
+    margin-top: 20px;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.plant-functions-list h5{
+    display: block;
+    margin: 0 auto 30px auto;
+}
+.function{
+    display: flex;
+    border-top: 1px solid #57ff43;
+    border-bottom: 1px solid #57ff43;
+    margin-bottom: 10px;
+    padding: 10px;
+    align-items: center;
+}
+
+.function p{
+    padding: 0;
+    margin: 0;
+}
+.function-del{
+    display: block;
+    background-color: #ff4238;
+    border: none;
+    width: 30px;
+    height: 30px;
+    color: #fff5fa;
+}
+.function-del:hover{
+    background-color: #ff7976;
+}
+.function-del:focus{
+    outline: none;
+}
+
+.notif-item-done:focus{
+    border: none;
+    outline: none;
+}

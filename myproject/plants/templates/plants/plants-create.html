@@ -1,0 +1,23 @@
+<div class="bed-content-create">
+    <div class="bed-custom {% if bed.shape == 'Круглая' %}bed-circle{% endif %}">
+        <div class="cursorBlock" style="display: none"></div>
+        <div class="cursorBlockActive" style="display: none"></div>
+        <div class="plants-list">
+            {% for plant in plants %}
+            <div class="cursorBlock plant" style="top: {{plant.y}}; left: {{plant.x}};"></div>
+            {% endfor %}
+        </div>
+    </div>
+    <form class="plant-create-form" name="plant-create-form">
+        <h4>Создайте растение:</h4>
+        <p>
+            <label for="id_name">Название:</label>
+            <input type="text" name="name" maxlength="20" id="id_name" placeholder="Название">
+        </p>
+        <p>
+            <label for="id_desc">Описание:</label>
+            <textarea name="desc" cols="40" rows="10" id="id_desc" placeholder="Описание"></textarea>
+        </p>
+        <input type="submit" value="Создать растение" class="plant-create-btn-submit">
+    </form>
+</div>

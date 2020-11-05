@@ -1,0 +1,52 @@
+.notif-today h3{
+    position: relative;
+    display: block;
+    text-align: center;
+}
+.notif-today h3:after{
+    content: "";
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    background-color: red;
+    border-radius: 50%;
+    animation: change infinite ease-in-out 2s;
+    top:0;
+}
+@keyframes change {
+    from{
+        background-color: red;
+    }
+    50%{
+        background-color: #ffb3b7;
+    }
+    to{
+        background-color: red;
+    }
+}
+
+.notif-tomorrow h3{
+    display: block;
+    text-align: center;
+}
+.notif-tomorrow{
+    margin: 60px auto;
+}
+
+.notif-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    border: 1px dotted #21ff2f;
+    margin: 0 auto 30px auto;
+    padding: 20px;
+}
+
+.notif-item-done{
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+}
+

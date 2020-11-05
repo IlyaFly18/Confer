@@ -1,0 +1,41 @@
+<h2 class="beds-list-title">Доступные объекты</h2>
+{% if size %}
+<h5>Количество: {{size}}</h5>
+{% for bed in beds %}
+<div class="bed-item {{ bed.id }}">
+    <div class="bed-item-info-name">
+        <span>Название гряды</span>
+        {{ bed.name }}
+    </div>
+    <div class="bed-item-info-shape">
+        {{bed.shape}}
+    </div>
+
+    <div class="bed-item-buttons">
+        <a href="plants/bed/{{bed.id}}/" class="btn btn-success">Перейти &raquo;</a>
+        <button class="del-bed btn btn-danger" onclick="del_bed({{bed.id}})">&times;</button>
+
+    </div>
+
+</div>
+{% endfor %}
+{% else %}
+<p>Нет данных</p>
+{% endif %}
+
+
+<script type="text/javascript">
+    function del_bed(bed_id) {
+        $.ajax({
+            method: 'post',
+            url: 'bed_del',
+            data: {
+                'bed_id': bed_id
+            },
+            success: function (data) {
+                $(".beds-list").html(data);
+            }
+        })
+
+    }
+</script>

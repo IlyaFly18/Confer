@@ -5,47 +5,88 @@
 <head>
     <meta charset="UTF-8">
     <title>Gard&Gard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+          rel="stylesheet">
     <link rel="stylesheet" href="{% static 'bootstrap/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'main/style.css' %}">
+    {% block headlinks %}
+    {% endblock %}
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Syne+Tactile&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Syne+Tactile&family=Turret+Road:wght@500&display=swap');
+    </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <span class="navbar-brand">Gard&Gard</span>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="{% url 'index' %}">Home</a>
-            </li>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <span class="navbar-brand" style="font-family: 'Syne Tactile', cursive;font-size: 30px">Gard&Gard</span>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item {% if active_url == '' %} active{% endif %}">
+                    <a class="nav-link" href="{% url 'index' %}">Home</a>
+                </li>
+                {% if request.user.is_authenticated %}
+                <li class="nav-item {% if active_url == 'beds' %} active{% endif %}">
+                    <a class="nav-link" href="{% url 'beds_index' %}">Объекты</a>
+                </li>
+                <li class="nav-item {% if active_url == 'ground' %} active{% endif %}">
+                    <a class="nav-link" href="{% url 'weather_index' %}">Погода</a>
+                </li>
+                <li class="nav-item {% if active_url == 'notif' %} active{% endif %}">
+                    <a class="nav-link" href="{% url 'notif_index' %}">Задачи</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+        <div class="accounts-links">
             {% if request.user.is_authenticated %}
-            <li class="nav-item">
-                <a class="nav-link" href="#">Объекты</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'weather_index' %}">Данные о погоде</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Уведомления</a>
-            </li>
-            <span class="nav-link">{{ request.user.username }},</span>
-            <a href="{% url 'logout' %}" class="nav-link">log out</a>
+            <a href="{% url 'logout' %}" class="nav-link">{{request.user.username}} Выйти</a>
             {% else %}
-            <li class="nav-item ">
-                {% url 'login' as url %}
-                <a href="{{ url }}" class="nav-link" >sign in</a>
-            </li>
-            <li class="nav-item">
-                {% url 'signup' as url %}
-                <a href="{{ url }}" class="nav-link">sign up</a>
-            </li>
+            <a href="{% url 'login' %}" class="nav-link">Войти</a>
+            <a href="{% url 'signup' %}" class="nav-link">Регистрация</a>
             {% endif %}
-        </ul>
-    </div>
-</nav>
-<div class="content">
+        </div>
+    </nav>
+</header>
+<section class="content">
     {% block content %}
+    <div class="main-content" style="font-family: 'Turret Road', cursive; font-size: 25px;">
+        <div class="main-content-text">
+            <p>Дорогие дачники!</p>
+            <p>Наше приложение всегда готово помочь упростить и усовершенствовать уход за садом и огородом</p>
+        </div>
+    </div>
     {% endblock %}
-</div>
+</section>
 
+
+<footer>
+    <div class="letter-form">
+        <h5>По всем вопросам пишите разработчику</h5>
+        <form name="developer-letter" class="developer-letter">
+            <p>
+                <label for="id_topic">Тема</label>
+                <input type="text" placeholder="Введите тему" id="id_topic" name="topic">
+            </p>
+            <p>
+                <label for="id_body">Сообщение</label>
+                <textarea name="body" id="id_body" placeholder="Введите сообщение"></textarea>
+            </p>
+            <input type="submit" value="Отправить" class="developer-letter-btn-submit">
+        </form>
+        <div class="developer-form-success" style="display: none">
+            <p style="text-align: center">Письмо отправлено</p>
+            <button>Отправить еще одно письмо</button>
+        </div>
+    </div>
+</footer>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+
+<script src="{% static 'main/main.js' %}"></script>
 {% block aftercontent %}
 {% endblock %}
 </body>

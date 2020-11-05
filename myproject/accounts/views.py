@@ -1,16 +1,16 @@
 from django.shortcuts import render, redirect
-from .forms import SignUpForm, ConfEmail
 from django.contrib.auth import authenticate, login
 from django.core.mail import send_mail
 from django.conf import settings
-import random
-from .models import CustomUser
 
+import random
+
+from .forms import SignUpForm, ConfEmail
+from django.contrib.auth.decorators import login_required
 
 def generate_code():
     random.seed()
     return str(random.randint(100000, 999999))
-
 
 def signup(request):
     if request.user.is_authenticated:
@@ -22,9 +22,9 @@ def signup(request):
                 new_user = form.save(commit=False)
                 new_user.set_password(form.cleaned_data['password'])
                 new_user.save()
-                username = form.cleaned_data.get('email')
+                username = form.cleaned_data.get('username')
                 password = form.cleaned_data.get('password')
-                user = authenticate(email=username, password=password)
+                user = authenticate(username=username, password=password)
                 if user is not None:
                     login(request, user)
                     confemail = user
@@ -54,7 +54,6 @@ def signup(request):
             form = SignUpForm()
             return render(request, 'accounts/signup.html', {'form': form})
 
-
 def confEmail(request):
     if request.user.is_authenticated:
         if (request.method == 'POST'):
@@ -80,6 +79,7 @@ def confEmail(request):
         return render(request, 'accounts/confemail.html', {'form': form})
     else:
         return redirect('index')
+
 
 def sucConfEmail(request):
     return render(request, 'accounts/succonfemail.html', {})

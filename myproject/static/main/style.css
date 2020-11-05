@@ -1,15 +1,23 @@
 body{
     box-sizing: border-box;
     width:100%;
+    font-family:'Montserrat', sans-serif;
 }
 .content{
     width:100%;
     box-sizing: border-box;
-    padding: 30px 0 0 0;
+    padding:20px;
+    margin-bottom:30px;
 }
-
-nav{
-margin:10px
+footer{
+    background-color: #6fff7b;
+    padding: 20px;
+}
+.accounts-links>a{
+    display: block;
+}
+.accounts-links{
+    display: flex;
 }
 
 .active{

@@ -1,0 +1,22 @@
+#content-block{
+    clear: both;
+}
+
+.weather-info{
+    background-color: antiquewhite;
+    max-width: 220px;
+    padding:10px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.recom{
+    float:left;
+}
+.weather-icon{
+    display: block;
+    background-color: #86cfda;
+}
+.weather-text{
+    float:left;
+    margin-right:20px;
+}

@@ -16,11 +16,6 @@ from django.utils.http import urlsafe_base64_encode
 UserModel = get_user_model()
 
 def _unicode_ci_compare(s1, s2):
-    """
-    Perform case-insensitive comparison of two identifiers, using the
-    recommended algorithm from Unicode Technical Report 36, section
-    2.11.2(B)(2).
-    """
     return unicodedata.normalize('NFKC', s1).casefold() == unicodedata.normalize('NFKC', s2).casefold()
 
 
@@ -34,7 +29,7 @@ class SignUpForm(forms.ModelForm):
             'email': "Email*",
             'username': "Логин*",
         }
-        help_texts = {
+        help_texts= {
             'username': '',
         }
 
@@ -50,6 +45,12 @@ class SignUpForm(forms.ModelForm):
         if password1 and password2 and password1 != password2:
             raise forms.ValidationError('Пароли не совпадают')
         return password2
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        user = CustomUser.objects.filter(email=email)
+        if user:
+            raise forms.ValidationError('Почта с таким именем существует')
+        return email
 
 class ConfEmail(forms.Form):
     code = forms.IntegerField(min_value=100000, max_value=999999)
@@ -76,7 +77,7 @@ class SetPasswordForm(forms.Form):
         if commit:
             self.user.save()
         return self.user
-
+#
 
 class PasswordResetForm(forms.Form):
     email = forms.EmailField(

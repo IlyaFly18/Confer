@@ -1,14 +1,29 @@
 {% extends "main/index.html" %}
 
-{% block content %}
-<div id = "request-block">
-    <p style="margin: auto;text-align: center;">Разрешите брать данные о Вашем местоположении <br> В случае запрета, вы лишитесь функции "Анализ влажности почвы Вашей местности"</p>
-</div>
-<div id="content-block" style="display:none;">
-    <p style="text-align: center;">Будущий контент</p>
-</div>
+{% block headlinks %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'weather/style.css' %}">
 {% endblock %}
 
+{% block content %}
+<div id="request-block" style="display:none;">
+    <p style="margin: auto;text-align: center;">Разрешите брать данные о Вашем местоположении <br> В случае запрета,
+        вы
+        лишитесь функции "Анализ влажности почвы Вашей местности"</p>
+</div>
+
+<div id="content-block">
+    <div class="weather-info">
+        <div class="weather-text">
+            <p>Город: <span class="weather-city"></span></p>
+            <p>Температура: <span class="weather-temp"></span>&deg;</p>
+        </div>
+        <img src="" alt="ic" class="weather-icon">
+    </div>
+    <div class="recom">
+    </div>
+</div>
+{% endblock %}
 {% block aftercontent %}
 {% load static %}
 <script src="{% static 'weather/main.js' %}"></script>

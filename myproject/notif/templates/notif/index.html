@@ -1,0 +1,59 @@
+{% extends "main/index.html" %}
+
+{% block headlinks %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'notif/style.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div class="notifications-content">
+    <div class="notif-today">
+        <h3><span>Сегодня</span></h3>
+        {% if notif.today %}
+        <div class="notif-list">
+            {% for item in notif.today %}
+            <div class="notif-item">
+                <div class="notif-item-bed-plant">
+                    <p class="notif-item-bed">Объект: {{item.bed.name}}</p>
+                    <p class="notif-item-plant">Растение: {{item.plant.name}}</p>
+                </div>
+                <div class="notif-item-func">
+                    <p>{{item.func.name}}</p>
+                </div>
+                <button class="notif-item-done" id="{{item.func.id}}"></button>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p style="text-align: center">Нет задач</p>
+        {% endif %}
+    </div>
+    <div class="notif-tomorrow">
+        <h3>Завтра</h3>
+        {% if notif.tomorrow %}
+        <div class="notif-list">
+            {% for item in notif.tomorrow %}
+            <div class="notif-item">
+                <div class="notif-item-bed-plant">
+                    <p class="notif-item-bed">Объект: {{item.bed.name}}</p>
+                    <p class="notif-item-plant">Растение: {{item.plant.name}}</p>
+                </div>
+                <div class="notif-item-func">
+                    <p>{{item.func.name}}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p style="text-align: center">Нет задач</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+
+{% block aftercontent %}
+{% load static %}
+<script src="{% static 'notif/main.js' %}"></script>
+{% endblock %}

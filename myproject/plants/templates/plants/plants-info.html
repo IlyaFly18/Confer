@@ -1,0 +1,67 @@
+<div class="bed-content-info">
+    <div class="bed-plants-custom {% if bed.shape == 'Круглая' %}bed-circle{% endif %}">
+        <div class="plants-list">
+            {% for plant in plants %}
+            <button class="cursorBlock plant" id="{{plant.id}}" style="top: {{plant.y}}; left: {{plant.x}};"
+                    onclick="plant_get({{plant.id}})"></button>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="one-plant-info">
+        <h3 class="one-plant-info-title">Растение({{name}})</h3>
+        <div class="one-plant-info-content">
+            <div class="div-plant-profile">
+                <div class="success-message" style="display: none">Успешно сохранено</div>
+                <form name="plant-profile" class="plant-profile">
+                    <h4 class="plant-profile-title">Редактировать</h4>
+                    <p>Дата создания: {{date}}</p>
+                    <p>
+                        <label for="id_name">Название растения:</label>
+                        <input type="text" name="name" id="id_name" placeholder="Название" value="{{name}}">
+                    </p>
+                    <p>
+                        <label for="id_desc">Описание растения:</label>
+                        <textarea name="desc" id="id_desc" placeholder="Описание">{{desc}}</textarea>
+                    </p>
+                    <input type="submit" value="Сохранить" class="plant-info-btn-submit" onclick="plant_save()">
+                </form>
+                <button class="plant-del-btn" onclick="plant_del()">Удалить растение</button>
+            </div>
+            <div class="plant-functions">
+                <h4 class="plant-functions-title">Функции</h4>
+                <div class="div-plant-functions-form">
+                    <form name="plant-functions-form" class="plant-functions-form" style="display: none">
+                        <p>
+                            <label for="id_func_name">Название функции:</label>
+                            <textarea name="name" id="id_func_name" placeholder="Функция"></textarea>
+                        </p>
+                        <p>
+                            <label for="id_func_date">Назначить ближайшую дату:</label>
+                            <input type="date" name="date" id="id_func_date">
+                        </p>
+                        <p>
+                            <label for="id_func_period">Назначить период выполнения(раз в ? дня/ей)(если хотите выполнить единожды - введите 0)</label>
+                            <input type="number" name="period" id="id_func_period" pattern="[0-9]+">
+                        </p>
+                        <input type="submit" value="Создать функцию" class="plant-functions-form-submit">
+                    </form>
+                    <button class="plant-functions-form-show-btn">Создать функцию</button>
+                    <button class="plant-functions-form-hide-btn" style="display: none">Не создавать функцию</button>
+                </div>
+                <div class="plant-functions-list">
+                    {% if functions %}
+                    <h5>Доступных функций - {{functions_size}}</h5>
+                    {% for func in functions %}
+                    <div class="function">
+                        <p>{{func.name}} ({{func.first_date}})</p>
+                        <button class="function-del" onclick="function_del({{func.id}})">&times;</button>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    <div><p style="text-align: center">Доступных функций нет</p></div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
