@@ -99,8 +99,9 @@ def plant_save(request):
 def plant_del(request):
     id = request.POST['id']
     plant = Plant.objects.get(id=id)
+    bed = plant.bed
     plant.delete()
-    plants = Plant.objects.all()
+    plants = Plant.objects.filter(bed=bed)
     context = {
         'plants': plants,
     }
