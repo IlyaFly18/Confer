@@ -53,7 +53,7 @@
     <div class="main-content" style="font-family: 'Turret Road', cursive; font-size: 25px;">
         <div class="main-content-text">
             <p>Дорогие дачники!</p>
-            <p>Наше приложение всегда готово помочь упростить и усовершенствовать уход за садом и огородом</p>
+            <p>Наше приложение помогает упростить и усовершенствовать уход за садом и огородом</p>
         </div>
     </div>
     {% endblock %}
@@ -61,6 +61,7 @@
 
 
 <footer>
+    {% if request.user.is_authenticated %}
     <div class="letter-form">
         <h5>По всем вопросам пишите разработчику</h5>
         <form name="developer-letter" class="developer-letter">
@@ -79,6 +80,7 @@
             <button>Отправить еще одно письмо</button>
         </div>
     </div>
+    {% endif %}
 </footer>
 
 
