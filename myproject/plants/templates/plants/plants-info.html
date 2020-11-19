@@ -8,20 +8,20 @@
         </div>
     </div>
     <div class="one-plant-info">
-        <h3 class="one-plant-info-title">Растение({{name}})</h3>
+        <h3 class="one-plant-info-title">Растение({{plant.name}})</h3>
         <div class="one-plant-info-content">
             <div class="div-plant-profile">
                 <div class="success-message" style="display: none">Успешно сохранено</div>
                 <form name="plant-profile" class="plant-profile">
                     <h4 class="plant-profile-title">Редактировать</h4>
-                    <p>Дата создания: {{date}}</p>
+                    <p>Дата создания: {{plant.date}}</p>
                     <p>
                         <label for="id_name">Название растения:</label>
-                        <input type="text" name="name" id="id_name" placeholder="Название" value="{{name}}">
+                        <input type="text" name="name" id="id_name" placeholder="Название" value="{{plant.name}}">
                     </p>
                     <p>
                         <label for="id_desc">Описание растения:</label>
-                        <textarea name="desc" id="id_desc" placeholder="Описание">{{desc}}</textarea>
+                        <textarea name="desc" id="id_desc" placeholder="Описание">{{plant.desc}}</textarea>
                     </p>
                     <input type="submit" value="Сохранить" class="plant-info-btn-submit" onclick="plant_save()">
                 </form>

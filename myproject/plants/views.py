@@ -68,9 +68,7 @@ def plant_get(request):
                 function.first_date = today
                 function.save()
         context = {
-            'date': plant.date,
-            'name': plant.name,
-            'desc': plant.desc,
+            'plant': plant,
             'functions': functions,
             'functions_size': len(functions),
         }
@@ -89,8 +87,7 @@ def plant_save(request):
     plant.desc = desc
     plant.save()
     context = {
-        'name': plant.name,
-        'desc': plant.desc,
+        'plant': plant,
     }
     return render(request, 'plants/plants-info.html', context)
 
